@@ -4,11 +4,11 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "alis-build-client"
-version = "0.0.5"
+version = "0.0.6"
 description = "A grpc client package for python applications."
 authors = ["Thomas Scholtz <tom.scholtz@alisx.com>"]
 readme = "README.md"
-homepage = "https://github.com/yourusername/grpc_client"
+homepage = "https://pypi.org/project/alis-build-client/"
 license = "MIT"
 classifiers = [
     "Programming Language :: Python :: 3",
