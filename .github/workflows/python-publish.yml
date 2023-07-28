@@ -11,7 +11,7 @@ name: Publish python package
 on:
   push:
     tags:
-      - "v*.*.*"
+      - "*@*.*.*" # e.g., client@0.0.5
 permissions:
   contents: read
 
@@ -20,6 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Set env
+        run: |
+          export TAG=${GITHUB_REF#refs/tags/}
+          echo "RELEASE_PROJECT=${TAG%%@*}" >> $GITHUB_ENV
       - name: Build and publish to PyPi
         uses: JRubics/poetry-publish@v1.17
         with:
@@ -27,4 +31,4 @@ jobs:
             poetry_version: "==1.5.1"
             pypi_token: ${{ secrets.PYPI_API_TOKEN }}
             build_format: "sdist"
-            package_directory: "python-client"
+            package_directory: ${{ env.RELEASE_PROJECT }}
