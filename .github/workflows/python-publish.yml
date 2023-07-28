@@ -11,7 +11,8 @@ name: Publish python package
 on:
   push:
     tags:
-      - "*@*.*.*" # e.g., client@0.0.5
+      - "*@*.*.*" # e.g., <package_dir>@0.0.5 WHERE package_dir MUST match a subdirectory in the repository root as it selects the build package_directory below
+      # the version following the @ should match the version set in pyproject.toml of package_dir, although it will not affect the version of the package in package_dir
 permissions:
   contents: read
 
