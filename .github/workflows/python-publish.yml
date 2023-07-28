@@ -27,3 +27,4 @@ jobs:
             poetry_version: "==1.5.1"
             pypi_token: ${{ secrets.PYPI_API_TOKEN }}
             build_format: "sdist"
+            package_directory: "python-client"
